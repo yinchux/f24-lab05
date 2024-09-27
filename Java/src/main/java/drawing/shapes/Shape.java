@@ -23,10 +23,11 @@ public interface Shape {
     /**
      * Draws lines to file.
      */
-    default void draw(Writer writer, Line[] lines) {
+    default void draw(Writer writer) {
         try {
-            for (Line line : lines) {
+            for (Line line : this.toLines()) {
                 // TODO: what is the purpose of the code there?
+                // use interface with the method write and encapsulate the line.toJPEG or .toPNG to its own method.
                 if (writer instanceof JPEGWriter) {
                     writer.write(line.toJPEG());
                 } else if (writer instanceof PNGWriter) {

@@ -34,8 +34,8 @@ public class Drawing {
             try (Writer writer = new JPEGWriter(filename + ".jpeg")) {
                 for (Shape shape : this.shapes) {
                     // TODO: What is the issue of the behavior here?
-                    Line[] lines = shape.toLines();
-                    shape.draw(writer, lines);
+                    // Line[] lines = shape.toLines();
+                    shape.draw(writer);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -43,8 +43,8 @@ public class Drawing {
         } else if (format.equals("png")) {
             try (Writer writer = new PNGWriter(filename + ".png")) {
                 for (Shape shape : this.shapes) {
-                    Line[] lines = shape.toLines();
-                    shape.draw(writer, lines);
+                    // Line[] lines = shape.toLines();
+                    shape.draw(writer);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
